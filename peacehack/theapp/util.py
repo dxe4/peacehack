@@ -37,7 +37,7 @@ def fix_values(val):
 
 
 def read_file(fpath):
-    result = []
+    rows = []
     _date = re.findall('([0-9]+)', fpath)[0]
     date_dict = {
         'Year': _date[:4],
@@ -52,9 +52,11 @@ def read_file(fpath):
             row = {k: fix_values(v) for k, v in row.items() if v}
             row.update(date_dict)
             obj = CrazyObject(**row)
-            result.append(obj)
+            rows.append(obj)
 
-    return result
+            if len(rows) > 1500:
+                CrazyObject.objects.bulk_create(rows)
+                rows = []
 
 
 def get_csv_files(directory=None):
@@ -68,5 +70,4 @@ def import_to_pg():
     files = get_csv_files(settings.DATA_DIR[0])
     for _file in files:
         print('importing {}'.format(_file))
-        rows = read_file(_file)
-        CrazyObject.objects.bulk_create(rows)
+        read_file(_file)
