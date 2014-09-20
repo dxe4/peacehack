@@ -4,7 +4,7 @@ import os
 from glob import glob
 
 from django.conf import settings
-
+from theapp.models import CrazyObject
 
 # BAD IDEA DONT DO THIS !
 
@@ -51,7 +51,8 @@ def read_file(fpath):
             row = dict(zip(csv_headers, row))
             row = {k: fix_values(v) for k, v in row.items() if v}
             row.update(date_dict)
-            result.append(row)
+            obj = CrazyObject(**row)
+            result.append(obj)
 
     return result
 
@@ -63,8 +64,9 @@ def get_csv_files(directory=None):
     return files
 
 
-def import_to_mongo():
+def import_to_pg():
     files = get_csv_files(settings.DATA_DIR[0])
     for _file in files:
         print('importing {}'.format(_file))
         rows = read_file(_file)
+        CrazyObject.objects.bulk_create(rows)
