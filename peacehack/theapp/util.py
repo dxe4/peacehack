@@ -4,7 +4,6 @@ import os
 from glob import glob
 
 from django.conf import settings
-from pymongo import MongoClient
 
 
 # BAD IDEA DONT DO THIS !
@@ -50,8 +49,8 @@ def read_file(fpath):
         csv_reader = csv.reader(csvfile, delimiter='\t')
         for row in csv_reader:
             row = dict(zip(csv_headers, row))
-            row.update(date_dict)
             row = {k: fix_values(v) for k, v in row.items() if v}
+            row.update(date_dict)
             result.append(row)
 
     return result
@@ -65,13 +64,7 @@ def get_csv_files(directory=None):
 
 
 def import_to_mongo():
-    client = MongoClient(settings.MONGODB_URL,
-                         settings.MONGODB_PORT)
-    db = client['dev-db']
-    dev_collection = db['dev-collection']
-
     files = get_csv_files(settings.DATA_DIR[0])
     for _file in files:
         print('importing {}'.format(_file))
         rows = read_file(_file)
-        dev_collection.insert(rows)
