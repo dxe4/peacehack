@@ -7,6 +7,8 @@ from django.conf import settings
 from pymongo import MongoClient
 
 
+# BAD IDEA DONT DO THIS !
+
 csv_headers = [
     'GLOBALEVENTID', 'SQLDATE', 'MonthYear', 'Year', 'FractionDate',
     'Actor1Code', 'Actor1Name', 'Actor1CountryCode', 'Actor1KnownGroupCode',
@@ -28,6 +30,13 @@ csv_headers = [
 ]
 
 
+def fix_values(val):
+    if val.isdigit():
+        return int(val)
+    else:
+        return val
+
+
 def read_file(fpath):
     result = []
     _date = re.findall('([0-9]+)', fpath)[0]
@@ -42,6 +51,7 @@ def read_file(fpath):
         for row in csv_reader:
             row = dict(zip(csv_headers, row))
             row.update(date_dict)
+            row = {k: fix_values(v) for k, v in row.items() if v}
             result.append(row)
 
     return result
