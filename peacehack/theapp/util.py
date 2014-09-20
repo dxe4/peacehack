@@ -1,4 +1,11 @@
 import csv
+import re
+import os
+from glob import glob
+
+from django.conf import settings
+from pymongo import MongoClient
+
 
 csv_headers = [
     'GLOBALEVENTID', 'SQLDATE', 'MonthYear', 'Year', 'FractionDate',
@@ -22,15 +29,39 @@ csv_headers = [
 
 
 def read_file(fpath):
+    result = []
+    _date = re.findall('([0-9]+)', fpath)[0]
+    date_dict = {
+        'Year': _date[:4],
+        'Month': _date[4:6],
+        'Day': _date[6:],
+    }
+
     with open(fpath, 'rb') as csvfile:
-        # , quotechar='|'
-        spamreader = csv.reader(csvfile, delimiter='\t')
-        i = 0
-        for row in spamreader:
-            print(', '.join(row))
-            result = dict(zip(csv_headers, row))
-            from pprint import pprint
-            pprint(result)
-            i = i + 1
-            if i == 3:
-                break
+        csv_reader = csv.reader(csvfile, delimiter='\t')
+        for row in csv_reader:
+            row = dict(zip(csv_headers, row))
+            row.update(date_dict)
+            result.append(row)
+
+    return result
+
+
+def get_csv_files(directory=None):
+    directory = directory or os.getcwd()
+    print(directory)
+    files = glob("".join((directory, '/*', 'CSV')))
+    return files
+
+
+def import_to_mongo():
+    client = MongoClient(settings.MONGODB_URL,
+                         settings.MONGODB_PORT)
+    db = client['dev-db']
+    dev_collection = db['dev-collection']
+
+    files = get_csv_files(settings.DATA_DIR[0])
+    for _file in files:
+        print('importing {}'.format(_file))
+        rows = read_file(_file)
+        dev_collection.insert(rows)

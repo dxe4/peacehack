@@ -62,6 +62,8 @@ STATICFILES_DIRS = (
     here('theapp/static'),
 )
 
+DATA_DIR = here('theapp/data'),
+
 ROOT_URLCONF = 'peacehack.urls'
 
 WSGI_APPLICATION = 'peacehack.wsgi.application'
@@ -77,6 +79,8 @@ WSGI_APPLICATION = 'peacehack.wsgi.application'
 #     }
 # }
 
+MONGODB_URL = os.getenv('MONGODB_URL', 'localhost')
+MONGODB_PORT = int(os.getenv('MONGODB_PORT', 27017))
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
