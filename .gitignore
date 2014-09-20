@@ -56,3 +56,4 @@ target/
 venv/
 staticfiles/
 *.zip
+*.csv
