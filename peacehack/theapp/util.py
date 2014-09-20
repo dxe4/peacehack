@@ -54,9 +54,8 @@ def read_file(fpath):
             obj = CrazyObject(**row)
             rows.append(obj)
 
-            if len(rows) > 1500:
-                CrazyObject.objects.bulk_create(rows)
-                rows = []
+    CrazyObject.objects.bulk_create(rows)
+    del rows
 
 
 def get_csv_files(directory=None):
@@ -71,3 +70,11 @@ def import_to_pg():
     for _file in files:
         print('importing {}'.format(_file))
         read_file(_file)
+        os.rename(
+            _file,
+            '/home/invalid/data_done/{}'.format(
+                _file.split('/')[-1])
+        )
+
+if __name__ == '__main__':
+    import_to_pg()

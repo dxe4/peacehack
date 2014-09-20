@@ -58,3 +58,4 @@ staticfiles/
 *.zip
 *.csv
 data/
+db.env
