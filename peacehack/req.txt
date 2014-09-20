@@ -1,5 +1,8 @@
 Django==1.7
 argparse==1.2.1
+beautifulsoup4==4.3.2
 distribute==0.6.24
+ipython==2.2.0
 pycountry==1.8
+requests==2.4.1
 wsgiref==0.1.2
