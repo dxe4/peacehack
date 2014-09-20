@@ -25,7 +25,12 @@ def read_file(fpath):
     with open(fpath, 'rb') as csvfile:
         # , quotechar='|'
         spamreader = csv.reader(csvfile, delimiter='\t')
+        i = 0
         for row in spamreader:
             print(', '.join(row))
-            dict(zip(csv_headers, row))
-            break
+            result = dict(zip(csv_headers, row))
+            from pprint import pprint
+            pprint(result)
+            i = i + 1
+            if i == 3:
+                break
