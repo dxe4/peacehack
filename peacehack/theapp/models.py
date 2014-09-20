@@ -116,7 +116,7 @@ class CrazyObject(models.Model):
     DATEADDED = models.IntegerField(blank=True, null=True)
     EventBaseCode = models.IntegerField(blank=True, null=True)
     EventCode = models.IntegerField(blank=True, null=True)
-    EventRootCode = models.ImageField(blank=True, null=True)
+    EventRootCode = models.IntegerField(blank=True, null=True)
     FractionDate = models.TextField(blank=True, null=True)
     GLOBALEVENTID = models.IntegerField(blank=True, null=True)
     GoldsteinScale = models.TextField(blank=True, null=True)
