@@ -25,7 +25,7 @@ def here(*args):
 SECRET_KEY = 'j-fox%$ugj%@y46i74=at*b^sy(c6g&_u%kq4gz9=km*kp78)&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 

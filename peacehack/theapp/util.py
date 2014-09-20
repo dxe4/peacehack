@@ -32,6 +32,8 @@ csv_headers = [
 def fix_values(val):
     if val.isdigit():
         return int(val)
+    elif val == '--' or val == '---':
+        return 0
     else:
         return val
 
@@ -52,6 +54,7 @@ def read_file(fpath):
             row = {k: fix_values(v) for k, v in row.items() if v}
             row.update(date_dict)
             obj = CrazyObject(**row)
+            del row
             rows.append(obj)
 
     CrazyObject.objects.bulk_create(rows)
@@ -66,6 +69,7 @@ def get_csv_files(directory=None):
 
 
 def import_to_pg():
+    import gc
     files = get_csv_files(settings.DATA_DIR[0])
     for _file in files:
         print('importing {}'.format(_file))
@@ -75,6 +79,7 @@ def import_to_pg():
             '/home/invalid/data_done/{}'.format(
                 _file.split('/')[-1])
         )
+        gc.collect()
 
 if __name__ == '__main__':
     import_to_pg()
