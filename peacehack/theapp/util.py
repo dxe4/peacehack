@@ -2,6 +2,9 @@ import csv
 import re
 import os
 from glob import glob
+from multiprocessing import Pool
+
+pool = Pool(5)
 
 from django.conf import settings
 from theapp.models import CrazyObject
@@ -39,6 +42,7 @@ def fix_values(val):
 
 
 def read_file(fpath):
+    print('importing {}'.format(fpath))
     rows = []
     _date = re.findall('([0-9]+)', fpath)[0]
     date_dict = {
@@ -59,6 +63,11 @@ def read_file(fpath):
 
     CrazyObject.objects.bulk_create(rows)
     del rows
+    os.rename(
+        fpath,
+        '/home/invalid/data_done/{}'.format(
+            fpath.split('/')[-1])
+    )
 
 
 def get_csv_files(directory=None):
@@ -69,17 +78,9 @@ def get_csv_files(directory=None):
 
 
 def import_to_pg():
-    import gc
     files = get_csv_files(settings.DATA_DIR[0])
-    for _file in files:
-        print('importing {}'.format(_file))
-        read_file(_file)
-        os.rename(
-            _file,
-            '/home/invalid/data_done/{}'.format(
-                _file.split('/')[-1])
-        )
-        gc.collect()
+    pool.map(read_file, files)
+
 
 if __name__ == '__main__':
     import_to_pg()
