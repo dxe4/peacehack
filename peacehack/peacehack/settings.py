@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+TOP_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+
+def here(*args):
+    return os.path.realpath(os.path.join(TOP_DIR, *args))
 
 
 # Quick-start development settings - unsuitable for production
@@ -36,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'theapp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,6 +54,14 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_DIRS = (
+    here('theapp/templates'),
+)
+
+STATICFILES_DIRS = (
+    here('theapp/static'),
+)
+
 ROOT_URLCONF = 'peacehack.urls'
 
 WSGI_APPLICATION = 'peacehack.wsgi.application'
@@ -56,12 +70,12 @@ WSGI_APPLICATION = 'peacehack.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -81,3 +95,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
