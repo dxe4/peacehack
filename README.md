@@ -1,19 +1,20 @@
 peacehack
 =========
 
-peacehack
 
-Next time go for [spark...](https://spark.apache.org/) 
-
-
-Some interesting stats on a `db.r3.xlarge` (30gb ram 4 cpu, ~20gb data, 58 cols):
-
+### Ukraine mentions in february 2014:
 
 For more info read [here](http://en.wikipedia.org/wiki/2014_Ukrainian_revolution)
 
-Ukraine mentions in february 2014:
 
 ![index](https://raw.githubusercontent.com/papaloizouc/peacehack/master/doc/ukraine_feb.png)
+
+
+### Whatever
+
+Next time go for [spark...](https://spark.apache.org/) 
+
+Some interesting stats on a `db.r3.xlarge` (30gb ram 4 cpu, ~20gb data, 58 cols):
 
 
 ![index](https://raw.githubusercontent.com/papaloizouc/peacehack/master/doc/index.png)
