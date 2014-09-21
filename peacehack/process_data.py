@@ -79,15 +79,3 @@ def palestine():
     plt.title('Palestine mentioned in july 2014')
     plt.savefig('palestine.png')
     plt.close()
-
-
-def usa_iraq():
-    days = list(range(1, 31))
-    result = [_get_data(2014, 8, day, 'USA') for day in days]
-
-    plt.plot(days, result)
-    plt.ylabel('Times Mentioned')
-    plt.xlabel('Day')
-    plt.title('USA mentioned in august 2014')
-    plt.savefig('palestine.png')
-    plt.close()
