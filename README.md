@@ -2,20 +2,20 @@ peacehack
 =========
 
 
-### Ukraine mentions in february 2014:
+### Ukraine mentions in february 2014 (ukraine revolution):
 
 For more info read [here](http://en.wikipedia.org/wiki/2014_Ukrainian_revolution)
 
 
 ![index](https://raw.githubusercontent.com/papaloizouc/peacehack/master/doc/ukraine_feb.png)
 
-### Ukraine mentions 9th september
+### Ukraine mentions 9th september (plane shot)
 
 For more info read [here](http://www.bbc.co.uk/news/world-europe-28357880)
 
 ![index](https://raw.githubusercontent.com/papaloizouc/peacehack/master/doc/ukraine_set.png)
 
-### Nigeria mentions in november
+### Nigeria mentions in november (kidnap)
 
 For more info read [here](http://www.bbc.co.uk/news/world-africa-27120357)
 

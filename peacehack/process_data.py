@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 
 from theapp.models import CrazyObject
 
+# Lot of bad code made with no sleep
+
 
 def _get_data(year, month, day, country):
     result_a = CrazyObject.objects.filter(
@@ -52,4 +54,40 @@ def nigeria_kidnap():
     plt.xlabel('Day')
     plt.title('Nigeria times mentioned in april 2014')
     plt.savefig('nigeria_nov.png')
+    plt.close()
+
+
+def new_pope_italy():
+    days = list(range(1, 31))
+    result = [_get_data(2014, 4, day, 'ITA') for day in days]
+
+    plt.plot(days, result)
+    plt.ylabel('Times Mentioned')
+    plt.xlabel('Day')
+    plt.title('Italy mentioned in april 2014')
+    plt.savefig('new_pope.png')
+    plt.close()
+
+
+def palestine():
+    days = list(range(1, 31))
+    result = [_get_data(2014, 7, day, 'PSE') for day in days]
+
+    plt.plot(days, result)
+    plt.ylabel('Times Mentioned')
+    plt.xlabel('Day')
+    plt.title('Palestine mentioned in july 2014')
+    plt.savefig('palestine.png')
+    plt.close()
+
+
+def usa_iraq():
+    days = list(range(1, 31))
+    result = [_get_data(2014, 8, day, 'USA') for day in days]
+
+    plt.plot(days, result)
+    plt.ylabel('Times Mentioned')
+    plt.xlabel('Day')
+    plt.title('USA mentioned in august 2014')
+    plt.savefig('palestine.png')
     plt.close()
