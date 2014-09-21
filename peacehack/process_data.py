@@ -38,7 +38,7 @@ def ukraine_september():
     plt.ylabel('Times Mentioned')
     plt.xlabel('Day')
     plt.title('Ukraine times mentioned in september 2014')
-    plt.savefig('ukraine_aug_sept.png')
+    plt.savefig('ukraine_sept.png')
     plt.close()
 
 
