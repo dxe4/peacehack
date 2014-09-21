@@ -115,7 +115,7 @@ class CrazyObject(models.Model):
     AvgTone = models.TextField(blank=True, null=True)
     DATEADDED = models.IntegerField(blank=True, null=True)
     EventBaseCode = models.IntegerField(blank=True, null=True)
-    EventCode = models.IntegerField(blank=True, null=True)
+    EventCode = models.IntegerField(db_index=True, blank=True, null=True)
     EventRootCode = models.IntegerField(blank=True, null=True)
     FractionDate = models.TextField(blank=True, null=True)
     GLOBALEVENTID = models.IntegerField(blank=True, null=True)
