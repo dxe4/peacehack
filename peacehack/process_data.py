@@ -22,7 +22,7 @@ def ukraine():
         result.append(_sum)
 
     plt.plot(days, result)
-    plt.xlabel('Times Mentioned')
-    plt.ylabel('Day')
+    plt.ylabel('Times Mentioned')
+    plt.xlabel('Day')
     plt.title('Ukraine times mentioned in febfruary')
     plt.savefig('ukraine.png')
