@@ -17,6 +17,7 @@ def _get_data(year, month, day, country):
 
 
 def ukraine_february():
+    # https://raw.githubusercontent.com/papaloizouc/peacehack/master/doc/ukraine_feb.png
     days = list(range(1, 29))  # 2->3 reasons
     result = [_get_data(2014, 2, day, 'UKR') for day in days]
 
@@ -29,17 +30,26 @@ def ukraine_february():
 
 
 def ukraine_september():
-    days_aug = list(range(15, 30))  # 2->3 reasons
-    days_sep = list(range(1, 15))
-    days = days_sep + days_aug
-
-    result_sep = [_get_data(2014, 9, day, 'UKR') for day in days_sep]
-    result_aug = [_get_data(2014, 8, day, 'UKR') for day in days_aug]
-    result = result_aug + result_sep
+    # http://www.bbc.co.uk/news/world-europe-28357880
+    days = list(range(1, 30))  # 2->3 reasons
+    result = [_get_data(2014, 9, day, 'UKR') for day in days]
 
     plt.plot(days, result)
     plt.ylabel('Times Mentioned')
     plt.xlabel('Day')
-    plt.title('Ukraine times mentioned in august and september 2014')
+    plt.title('Ukraine times mentioned in september 2014')
     plt.savefig('ukraine_aug_sept.png')
+    plt.close()
+
+
+def nigeria_kidnap():
+    # http://www.bbc.co.uk/news/world-africa-27120357
+    days = list(range(1, 30))
+    result = [_get_data(2014, 4, day, 'NGA') for day in days]
+
+    plt.plot(days, result)
+    plt.ylabel('Times Mentioned')
+    plt.xlabel('Day')
+    plt.title('Nigeria times mentioned in april 2014')
+    plt.savefig('nigeria_nov.png')
     plt.close()
