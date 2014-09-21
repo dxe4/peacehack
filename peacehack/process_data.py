@@ -1,8 +1,6 @@
 from django.db.models import Count
 
-import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
-
 
 from theapp.models import CrazyObject
 
@@ -23,7 +21,7 @@ def ukraine():
         _sum = result_a['NumMentions__count'] + result_b['NumMentions__count']
         result.append(_sum)
 
-    plt.plot(days, result, 'r--')
+    plt.plot(days, result)
     plt.xlabel('Times Mentioned')
     plt.ylabel('Day')
     plt.title('Ukraine times mentioned in febfruary')
