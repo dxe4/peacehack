@@ -9,6 +9,11 @@ For more info read [here](http://en.wikipedia.org/wiki/2014_Ukrainian_revolution
 
 ![index](https://raw.githubusercontent.com/papaloizouc/peacehack/master/doc/ukraine_feb.png)
 
+### Ukraine mentions 9th september (aug-sept)
+
+For more info read [here](http://www.bbc.co.uk/news/world-europe-28357880)
+
+![index](https://raw.githubusercontent.com/papaloizouc/peacehack/master/doc/ukraine_aug_sept.png)
 
 ### Whatever
 
