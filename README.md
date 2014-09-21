@@ -22,7 +22,7 @@ For more info read [here](http://www.bbc.co.uk/news/world-africa-27120357)
 ![index](https://raw.githubusercontent.com/papaloizouc/peacehack/master/doc/nigeria_nov.png)
 
 
-### Palestine mentions in 8 july (kidnap)
+### Palestine mentions in 8 july
 
 For more info read [here](http://en.wikipedia.org/wiki/2014_Israel%E2%80%93Gaza_conflict)
 
