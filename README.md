@@ -26,6 +26,8 @@ For more info read [here](http://www.bbc.co.uk/news/world-africa-27120357)
 
 For more info read [here](http://en.wikipedia.org/wiki/2014_Israel%E2%80%93Gaza_conflict)
 
+![index](https://raw.githubusercontent.com/papaloizouc/peacehack/master/doc/palestine.png)
+
 
 ### Whatever
 
