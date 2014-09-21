@@ -75,9 +75,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'peacehack',
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASS'),
-        'HOST': os.getenv('DB_HOST'),
+        'USER': os.getenv('DB_USER', 'peacehack'),
+        'PASSWORD': os.getenv('DB_PASS', 'peacehack'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': '',
     }
 }
