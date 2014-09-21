@@ -1,6 +1,8 @@
 peacehack
 =========
 
+#### This should actually be running on BigQuery :scream:
+
 
 ### Ukraine mentions in february 2014 (ukraine revolution):
 
