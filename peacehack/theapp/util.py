@@ -4,7 +4,7 @@ import os
 from glob import glob
 from multiprocessing import Pool
 
-pool = Pool(3)
+pool = Pool(4)
 
 from django.conf import settings
 from theapp.models import CrazyObject
